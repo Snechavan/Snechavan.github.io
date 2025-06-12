@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Elements -->
+  <circle cx="400" cy="300" r="250" fill="#FF6B6B" fill-opacity="0.1"/>
+  <circle cx="400" cy="300" r="200" fill="#FF6B6B" fill-opacity="0.05"/>
+  
+  <!-- Decorative Elements -->
+  <path d="M200,200 Q400,100 600,200" stroke="#FF6B6B" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M200,400 Q400,500 600,400" stroke="#FF6B6B" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Main Illustration -->
+  <g transform="translate(400,300)">
+    <!-- Briefcase -->
+    <rect x="-100" y="-80" width="200" height="160" rx="20" fill="#2D3436" opacity="0.1"/>
+    <rect x="-80" y="-60" width="160" height="120" rx="10" fill="#2D3436" opacity="0.2"/>
+    
+    <!-- Code Symbols -->
+    <text x="-60" y="0" font-family="monospace" font-size="24" fill="#FF6B6B">{"</>"}</text>
+    
+    <!-- Decorative Dots -->
+    <circle cx="-120" cy="-100" r="5" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="120" cy="-100" r="5" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="-120" cy="100" r="5" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="120" cy="100" r="5" fill="#FF6B6B" opacity="0.5"/>
+  </g>
+  
+  <!-- Animated Elements -->
+  <g transform="translate(400,300)">
+    <!-- Floating Elements -->
+    <circle cx="-150" cy="-150" r="10" fill="#FF6B6B" opacity="0.3">
+      <animate attributeName="cy" values="-150;-170;-150" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="-150" r="10" fill="#FF6B6B" opacity="0.3">
+      <animate attributeName="cy" values="-150;-170;-150" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="-150" cy="150" r="10" fill="#FF6B6B" opacity="0.3">
+      <animate attributeName="cy" values="150;170;150" dur="3s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <circle cx="150" cy="150" r="10" fill="#FF6B6B" opacity="0.3">
+      <animate attributeName="cy" values="150;170;150" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+  </g>
+</svg> 

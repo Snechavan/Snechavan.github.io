@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 3D Animation Styles */
+@layer utilities {
+  .perspective-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .rotate-3d {
+    transform: rotateX(10deg) rotateY(10deg);
+  }
+
+  .float-3d {
+    animation: float3d 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0) translateZ(0) rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: translateY(-10px) translateZ(20px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(0) translateZ(40px) rotateX(0) rotateY(10deg);
+  }
+  75% {
+    transform: translateY(10px) translateZ(20px) rotateX(-5deg) rotateY(5deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s ease-in-out infinite;
+}
+
+:root {
+  --soft-cream: #f5f5f0;
+  --warm-coral: #ff6b6b;
+  --charcoal: #2d3436;
+  --deep-blue: #2c3e50;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-soft-cream text-charcoal;
+  }
+
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+    --font-poppins: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .brush-stroke {
+    @apply relative overflow-hidden;
+  }
+  
+  .brush-stroke::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1 bg-warm-coral transform origin-left animate-brush-stroke;
+  }
+
+  .nav-link {
+    @apply relative px-4 py-2 text-charcoal hover:text-warm-coral transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-warm-coral transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .project-card {
+    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-105;
+  }
+
+  .section-title {
+    @apply font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-8;
+  }
+
+  .btn-primary {
+    @apply bg-warm-coral text-white px-6 py-3 rounded-lg hover:bg-warm-coral/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-charcoal px-6 py-3 rounded-lg border border-charcoal/20 hover:bg-charcoal/5 transition-colors;
+  }
+}
+
+/* Painter Mode Styles */
+.painter-mode {
+  --warm-coral: #ff9f43;
+  --charcoal: #2c3e50;
+  --soft-cream: #fff5e6;
+}
+
+.painter-mode .bg-soft-cream {
+  background-image: url('/canvas-texture.svg');
+  background-blend-mode: overlay;
+}
+
+.painter-mode .btn-primary {
+  background-image: linear-gradient(45deg, #ff9f43, #ff6b6b);
+  box-shadow: 0 4px 15px rgba(255, 159, 67, 0.3);
+}
+
+.painter-mode .btn-secondary {
+  background-image: linear-gradient(45deg, #fff5e6, #fff);
+  border: 2px solid #ff9f43;
+}
+
+.painter-mode .font-playfair {
+  text-shadow: 2px 2px 4px rgba(44, 62, 80, 0.1);
+}
+
+.painter-mode .bg-white {
+  background-image: url('/canvas-texture.svg');
+  background-blend-mode: overlay;
+  box-shadow: 0 4px 20px rgba(44, 62, 80, 0.1);
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section Transitions */
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* Painter Mode Specific */
+.painter-mode .theme-transition {
+  background: linear-gradient(135deg, rgba(255, 235, 205, 0.3), rgba(255, 182, 193, 0.3));
+}
+
+/* Code Mode Specific */
+.code-mode .theme-transition {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+}
+
+/* Code Mode Styles */
+.code-mode {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+  --secondary: 217 32% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 32% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 217 32% 17%;
+  --accent-foreground: 210 40% 98%;
+  --border: 217 32% 17%;
+  --input: 217 32% 17%;
+  --ring: 224 76% 48%;
+} 

@@ -1,15 +1,5 @@
 import { NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
-
-// Initialize Prisma Client as a singleton
-const globalForPrisma = global as unknown as { prisma: PrismaClient }
-
-export const prisma = globalForPrisma.prisma || new PrismaClient()
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
-
-// Handle connection
-prisma.$connect()
+import { prisma } from '@/lib/prisma'
 
 export async function GET() {
   try {

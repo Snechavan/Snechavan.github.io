@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
 
+// Initialize Prisma Client
 const prisma = new PrismaClient()
+
+// Handle connection
+prisma.$connect()
 
 export async function GET() {
   try {
-    const messages = await prisma.message.findMany({
+    const messages = await prisma.contactmessage.findMany({
       orderBy: {
         createdAt: 'desc'
       }
@@ -33,9 +37,9 @@ export async function DELETE(request: Request) {
       )
     }
 
-    await prisma.message.delete({
+    await prisma.contactmessage.delete({
       where: {
-        id: parseInt(id)
+        id: id
       }
     })
 

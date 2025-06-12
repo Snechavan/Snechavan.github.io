@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     // Store message in database
     console.log('Storing message in database...');
     try {
-      const contactMessage = await prisma.contactmessage.create({
+      const contactMessage = await prisma.contactMessage.create({
         data: {
           name,
           email,
@@ -83,7 +83,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const messages = await prisma.contactmessage.findMany({
+    const messages = await prisma.contactMessage.findMany({
       orderBy: {
         createdAt: 'desc',
       },
@@ -111,7 +111,7 @@ export async function PATCH(request: Request) {
       );
     }
 
-    const message = await prisma.contactmessage.update({
+    const message = await prisma.contactMessage.update({
       where: { id },
       data: { status },
     });
@@ -138,7 +138,7 @@ export async function DELETE(request: Request) {
       );
     }
 
-    await prisma.contactmessage.delete({
+    await prisma.contactMessage.delete({
       where: { id },
     });
 

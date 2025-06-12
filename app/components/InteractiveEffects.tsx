@@ -39,7 +39,7 @@ export default function InteractiveEffects() {
        'void', 'class', 'new',  'try', 'catch'
     ];
 
-    let particles: Particle[] = [];
+    const particles: Particle[] = [];
     let animationFrameId: number;
 
     class Particle {

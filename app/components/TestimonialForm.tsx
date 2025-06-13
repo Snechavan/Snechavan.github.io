@@ -36,11 +36,22 @@ export default function TestimonialForm() {
     try {
       const formData = new FormData(e.currentTarget);
       const testimonialData = {
-        name: formData.get('name'),
-        email: formData.get('email'),
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        role: formData.get('role') as string,
         rating: parseInt(formData.get('rating') as string),
-        comment: formData.get('comment')
+        comment: formData.get('comment') as string
       };
+
+      // Validate required fields
+      if (!testimonialData.name || !testimonialData.email || !testimonialData.rating || !testimonialData.comment) {
+        throw new Error('Please fill in all required fields');
+      }
+
+      // Validate rating
+      if (isNaN(testimonialData.rating) || testimonialData.rating < 1 || testimonialData.rating > 5) {
+        throw new Error('Please select a valid rating');
+      }
 
       // Store in database
       const response = await fetch('/api/testimonials', {
@@ -56,9 +67,11 @@ export default function TestimonialForm() {
         throw new Error(errorData.error || 'Failed to submit testimonial');
       }
 
+      const result = await response.json();
       setSubmitStatus('success');
       if (formRef.current) {
         formRef.current.reset();
+        setRating(0);
       }
     } catch (error) {
       console.error('Error submitting testimonial:', error);

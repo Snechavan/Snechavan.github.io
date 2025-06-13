@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,7 +17,7 @@ export async function GET() {
   } catch (error) {
     console.error('Error fetching testimonials:', error);
     return NextResponse.json(
-      { message: 'Failed to fetch testimonials' },
+      { error: 'Failed to fetch testimonials' },
       { status: 500 }
     );
   }
@@ -31,7 +29,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log('Received testimonial data:', body);
 
-    const { name, email, rating, comment } = body;
+    const { name, email, rating, comment, role } = body;
 
     if (!name || !email || !rating || !comment) {
       console.log('Missing required fields:', { name, email, rating, comment });
@@ -87,14 +85,14 @@ export async function PATCH(request: Request) {
 
     if (!id || !status) {
       return NextResponse.json(
-        { message: 'Testimonial ID and status are required' },
+        { error: 'Testimonial ID and status are required' },
         { status: 400 }
       );
     }
 
     if (!['pending', 'approved', 'rejected'].includes(status)) {
       return NextResponse.json(
-        { message: 'Invalid status value' },
+        { error: 'Invalid status value' },
         { status: 400 }
       );
     }
@@ -112,7 +110,7 @@ export async function PATCH(request: Request) {
   } catch (error) {
     console.error('Error updating testimonial:', error);
     return NextResponse.json(
-      { message: 'Failed to update testimonial' },
+      { error: 'Failed to update testimonial' },
       { status: 500 }
     );
   }
@@ -126,7 +124,7 @@ export async function DELETE(request: Request) {
 
     if (!id) {
       return NextResponse.json(
-        { message: 'Testimonial ID is required' },
+        { error: 'Testimonial ID is required' },
         { status: 400 }
       );
     }
@@ -141,7 +139,7 @@ export async function DELETE(request: Request) {
   } catch (error) {
     console.error('Error deleting testimonial:', error);
     return NextResponse.json(
-      { message: 'Failed to delete testimonial' },
+      { error: 'Failed to delete testimonial' },
       { status: 500 }
     );
   }

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sql } from '@vercel/postgres';
+import { prisma } from '@/lib/prisma';
 
 export async function PATCH(
   request: Request,
@@ -9,11 +9,10 @@ export async function PATCH(
     const { status } = await request.json();
     const id = params.id;
 
-    await sql`
-      UPDATE contacts
-      SET status = ${status}
-      WHERE id = ${id}
-    `;
+    await prisma.contactMessage.update({
+      where: { id },
+      data: { status },
+    });
 
     return NextResponse.json(
       { message: 'Contact message updated successfully' },
@@ -35,10 +34,9 @@ export async function DELETE(
   try {
     const id = params.id;
 
-    await sql`
-      DELETE FROM contacts
-      WHERE id = ${id}
-    `;
+    await prisma.contactMessage.delete({
+      where: { id },
+    });
 
     return NextResponse.json(
       { message: 'Contact message deleted successfully' },

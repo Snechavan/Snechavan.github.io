@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
-import { sql } from '@vercel/postgres';
+import { prisma } from '@/lib/prisma';
 
 export async function GET() {
   try {
-    const { rows } = await sql`
-      SELECT * FROM contact_messages 
-      ORDER BY created_at DESC
-    `;
-    return NextResponse.json(rows);
+    const messages = await prisma.contactMessage.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+    return NextResponse.json(messages);
   } catch (error) {
     console.error('Error fetching contact messages:', error);
     return NextResponse.json(
@@ -29,10 +30,9 @@ export async function DELETE(request: Request) {
       );
     }
 
-    await sql`
-      DELETE FROM contact_messages 
-      WHERE id = ${id}
-    `;
+    await prisma.contactMessage.delete({
+      where: { id },
+    });
 
     return NextResponse.json({ message: 'Message deleted successfully' });
   } catch (error) {

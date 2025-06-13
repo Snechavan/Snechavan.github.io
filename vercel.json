@@ -1,9 +1,5 @@
 {
   // Vercel configuration for Next.js deployment
   "version": 2,
-  "buildCommand": "npx prisma generate && next build",
-  "installCommand": "npm install --no-optional",
-  "framework": "nextjs",
-  "outputDirectory": ".next",
-  "rootDirectory": "./"
+  "framework": "nextjs"
 } 

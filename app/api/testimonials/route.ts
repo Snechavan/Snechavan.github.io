@@ -7,8 +7,6 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     console.log('Fetching all testimonials...');
-    console.log('Database URL:', process.env.DATABASE_URL ? 'Set' : 'Not set');
-    
     const testimonials = await prisma.testimonial.findMany({
       orderBy: {
         createdAt: 'desc'
@@ -19,7 +17,7 @@ export async function GET() {
   } catch (error) {
     console.error('Error fetching testimonials:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch testimonials', details: error },
+      { error: 'Failed to fetch testimonials' },
       { status: 500 }
     );
   }
@@ -30,7 +28,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     console.log('Received testimonial data:', body);
-    console.log('Database URL:', process.env.DATABASE_URL ? 'Set' : 'Not set');
 
     const { name, email, rating, comment, role } = body;
 
@@ -54,34 +51,26 @@ export async function POST(request: Request) {
 
     // Store in database
     console.log('Creating testimonial in database...');
-    try {
-      const testimonial = await prisma.testimonial.create({
-        data: {
-          name,
-          email,
-          rating: ratingNum,
-          message: comment,
-          status: 'pending'
-        },
-      });
-      console.log('Successfully created testimonial:', testimonial);
+    const testimonial = await prisma.testimonial.create({
+      data: {
+        name,
+        email,
+        rating: ratingNum,
+        message: comment,
+        status: 'pending'
+      }
+    });
+    console.log('Successfully created testimonial:', testimonial);
 
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Testimonial submitted successfully and pending approval',
-        data: testimonial 
-      });
-    } catch (dbError) {
-      console.error('Database error:', dbError);
-      return NextResponse.json(
-        { error: 'Failed to store testimonial in database', details: dbError },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Testimonial submitted successfully and pending approval',
+      data: testimonial 
+    });
   } catch (error) {
     console.error('Error storing testimonial:', error);
     return NextResponse.json(
-      { error: 'Failed to store testimonial. Please try again later.', details: error },
+      { error: 'Failed to store testimonial. Please try again later.' },
       { status: 500 }
     );
   }

@@ -49,8 +49,6 @@ export async function POST(request: Request) {
 
     // Store message in database
     console.log('Storing message in database...');
-    console.log('Database URL:', process.env.DATABASE_URL ? 'Set' : 'Not set');
-    
     try {
       const contactMessage = await prisma.contactMessage.create({
         data: {
@@ -70,14 +68,14 @@ export async function POST(request: Request) {
     } catch (dbError) {
       console.error('Database error:', dbError);
       return NextResponse.json(
-        { error: 'Failed to store message in database', details: dbError },
+        { error: 'Failed to store message in database' },
         { status: 500 }
       );
     }
   } catch (error) {
     console.error('Error in contact form submission:', error);
     return NextResponse.json(
-      { error: 'Failed to send message. Please try again.', details: error },
+      { error: 'Failed to send message. Please try again.' },
       { status: 500 }
     );
   }

@@ -1,5 +1,0 @@
-{
-  // Vercel configuration for Next.js deployment
-  "version": 2,
-  "framework": "nextjs"
-} 

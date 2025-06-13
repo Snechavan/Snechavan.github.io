@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  environment = { NODE_VERSION = "18.18.0" }
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
@@ -30,4 +31,8 @@
   pretty_urls = true
 
 [build.processing.images]
-  compress = true 
+  compress = true
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@prisma/client"] 

@@ -64,4 +64,59 @@ code-canvas-portfolio/
 
 ## License
 
-MIT License - feel free to use this template for your own portfolio! 
+MIT License - feel free to use this template for your own portfolio!
+
+## Deployment on Vercel
+
+### Prerequisites
+- A Vercel account
+- A MySQL database (e.g., PlanetScale, Railway, or any MySQL-compatible database)
+- Git repository with your code
+
+### Deployment Steps
+
+1. **Prepare Your Database**
+   - Set up a MySQL database in your preferred provider
+   - Get your database connection URL
+   - Make sure your database is accessible from Vercel's servers
+
+2. **Deploy to Vercel**
+   - Push your code to GitHub
+   - Import your repository in Vercel
+   - Configure the following environment variables in Vercel:
+     - `DATABASE_URL`: Your MySQL database connection string
+     - `NEXT_PUBLIC_SITE_URL`: Your Vercel deployment URL
+
+3. **Environment Variables**
+   Create a `.env` file locally with the following variables:
+   ```
+   DATABASE_URL="mysql://user:password@host:port/database"
+   NEXT_PUBLIC_SITE_URL="https://your-site-url.vercel.app"
+   ```
+
+4. **Local Development**
+   ```bash
+   # Install dependencies
+   npm install
+
+   # Run development server
+   npm run dev
+
+   # Build for production
+   npm run build
+   ```
+
+5. **Database Migrations**
+   ```bash
+   # Generate Prisma client
+   npx prisma generate
+
+   # Run migrations
+   npx prisma migrate deploy
+   ```
+
+### Important Notes
+- Never commit your `.env` file or `DB_URL.txt`
+- Always use environment variables for sensitive information
+- Make sure your database connection string is properly formatted
+- Test your database connection before deploying 

@@ -31,6 +31,9 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.development
+.env.production
 
 # vercel
 .vercel
@@ -58,4 +61,7 @@ Thumbs.db
 /prisma/dev.db
 /prisma/migrations/
 /prisma/*.db
-/prisma/*.db-journal 
+/prisma/*.db-journal
+
+# Database
+DB_URL.txt 

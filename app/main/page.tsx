@@ -1,9 +1,5 @@
-import HeroSection from '../components/HeroSection';
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return (
-    <div className="min-h-screen">
-      <HeroSection />
-    </div>
-  );
+export default function MainPage() {
+  redirect('/');
 } 

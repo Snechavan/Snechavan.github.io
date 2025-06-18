@@ -5,6 +5,14 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  experimental: {
+    serverActions: true,
+  },
+  output: 'standalone',
+  images: {
+    domains: ['localhost'],
+    unoptimized: true
   }
 }
 

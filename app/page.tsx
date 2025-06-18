@@ -105,8 +105,7 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <div className="container mx-auto px-2 py-12">
-      <div className="max-w-1xl mx-auto">
-
+        <div className="max-w-1xl mx-auto">
           <TestimonialForm />
         </div>
       </div>

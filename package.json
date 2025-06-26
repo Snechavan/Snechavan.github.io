@@ -11,8 +11,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
-    "postinstall": "prisma generate"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",

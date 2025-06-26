@@ -9,8 +9,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Testimonials from './components/Testimonials';
-import TestimonialForm from './components/TestimonialForm';
+import Certification from './components/Certification';
 import ThemeToggle from './components/ThemeToggle';
 
 export default function Home() {
@@ -103,12 +102,7 @@ export default function Home() {
       <Education />
       <Experience />
       <Projects />
-      <Testimonials />
-      <div className="container mx-auto px-2 py-12">
-        <div className="max-w-1xl mx-auto">
-          <TestimonialForm />
-        </div>
-      </div>
+      <Certification />
       <Contact />
       <Footer />
       <ThemeToggle />

@@ -36,11 +36,7 @@ export default function Footer() {
         href: '/',
         icon: FaBriefcase
       },
-      { 
-        name: 'Testimonials', 
-        href: '/#testimonials',
-        icon: FaComments
-      },
+      
     ],
     'Legal': [
       { name: 'Privacy Policy', href: '/privacy' },

@@ -20,9 +20,8 @@ const navItems: NavItem[] = [
   { name: 'Education', href: '#education' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
-  { name: 'Admin', href: '/admin', icon: FaUserLock }
+  { name: 'Certifications', href: '#certifications' },
+  { name: 'Contact', href: '#contact' }
 ];
 
 export default function Navigation() {

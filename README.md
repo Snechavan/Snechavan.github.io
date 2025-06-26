@@ -1,123 +1,132 @@
+
 # Code & Canvas Portfolio
-visit: https://snehaportfolio-cznulxxj0-snehas-projects-43b75972.vercel.app
 
-A modern, artistic portfolio website built with Next.js, TailwindCSS, and Framer Motion.
+🖼️ **Live Site:** [Visit Portfolio](https://snehaportfolio-cznulxxj0-snehas-projects-43b75972.vercel.app)
 
-## Features
+A modern, artistic portfolio website built with **Next.js**, **TailwindCSS**, and **Framer Motion**.
 
-- 🎨 Artistic design with canvas-inspired elements
-- ⚡ Fast and responsive with Next.js
-- 🎭 Smooth animations with Framer Motion
-- 🎯 Modern UI with TailwindCSS
-- 📱 Fully responsive design
-- 🌙 Dark/Light mode support
+---
 
-## Getting Started
+## ✨ Features
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/code-canvas-portfolio.git
-cd code-canvas-portfolio
+- 🎨 Artistic design with canvas-inspired visuals  
+- ⚡ Fast & responsive — powered by Next.js  
+- 🎭 Smooth animations via Framer Motion  
+- 💅 Clean, modern UI with TailwindCSS  
+- 📱 Mobile-friendly & fully responsive  
+- 🌙 Dark/Light mode toggle  
+- 🏆 Dynamic, editable certifications section  
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/Snechavan/Snechavan.github.io.git
+   cd Snechavan.github.io
+````
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run locally:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser to:
+   👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📁 Project Structure
+
+```
+Snechavan.github.io/
+├── app/
+│   ├── components/     # Reusable UI components
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout wrapper
+│   └── page.tsx        # Home page content
+├── public/             # Static assets (images, icons)
+├── styles/             # Custom CSS (optional)
+└── package.json        # Project metadata & dependencies
 ```
 
-2. Install dependencies:
+---
+
+## 🛠️ Customization Guide
+
+* Update **personal info** → `app/page.tsx`
+* Change **colors/fonts** → `tailwind.config.js`
+* Add/edit **projects** → inside components or custom section
+* Update **certifications** → `app/lib/certifications.ts`
+* Modify **animations** → in Framer Motion components
+
+---
+
+## 🧰 Tech Stack
+
+* ⚛️ [Next.js 14](https://nextjs.org/)
+* 🎨 [TailwindCSS](https://tailwindcss.com/)
+* 🎞️ [Framer Motion](https://www.framer.com/motion/)
+* 🧩 TypeScript
+* 🎯 React Icons
+
+---
+
+## ☁️ Deployment on Vercel
+
+### ✅ Requirements
+
+* GitHub account with your code
+* [Vercel account](https://vercel.com)
+
+### 🧾 Steps
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com) and import your repo
+3. Add optional environment variables (e.g., for a contact form):
+
+   * `EMAIL_USER`: Your Gmail
+   * `EMAIL_PASS`: Gmail App Password
+4. Click **Deploy**
+
+---
+
+## 🔧 Local Development
+
 ```bash
 npm install
-```
-
-3. Run the development server:
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## 📦 Production Build
 
-## Project Structure
-
-```
-code-canvas-portfolio/
-├── app/
-│   ├── components/     # Reusable components
-│   ├── sections/       # Page sections
-│   ├── globals.css     # Global styles
-│   ├── layout.tsx      # Root layout
-│   └── page.tsx        # Home page
-├── public/            # Static assets
-├── styles/           # Additional styles
-└── package.json      # Dependencies
+```bash
+npm run build
 ```
 
-## Customization
+---
 
-1. Update personal information in `app/page.tsx`
-2. Modify colors in `tailwind.config.js`
-3. Add your projects in the projects section
-4. Customize animations in components
+## 📝 License
 
-## Technologies Used
+This project is licensed under the **MIT License** — feel free to fork and customize!
 
-- Next.js 14
-- React 18
-- TailwindCSS
-- Framer Motion
-- TypeScript
-- React Icons
+---
 
-## License
+## 🙋‍♀️ Questions or Feedback?
 
-MIT License - feel free to use this template for your own portfolio!
+Open an issue or submit a pull request — contributions are welcome!
 
-## Deployment on Vercel
+```
 
-### Prerequisites
-- A Vercel account
-- A MySQL database (e.g., PlanetScale, Railway, or any MySQL-compatible database)
-- Git repository with your code
+---
 
-### Deployment Steps
-
-1. **Prepare Your Database**
-   - Set up a MySQL database in your preferred provider
-   - Get your database connection URL
-   - Make sure your database is accessible from Vercel's servers
-
-2. **Deploy to Vercel**
-   - Push your code to GitHub
-   - Import your repository in Vercel
-   - Configure the following environment variables in Vercel:
-     - `DATABASE_URL`: Your MySQL database connection string
-     - `NEXT_PUBLIC_SITE_URL`: Your Vercel deployment URL
-
-3. **Environment Variables**
-   Create a `.env` file locally with the following variables:
-   ```
-   DATABASE_URL="mysql://user:password@host:port/database"
-   NEXT_PUBLIC_SITE_URL="https://your-site-url.vercel.app"
-   ```
-
-4. **Local Development**
-   ```bash
-   # Install dependencies
-   npm install
-
-   # Run development server
-   npm run dev
-
-   # Build for production
-   npm run build
-   ```
-
-5. **Database Migrations**
-   ```bash
-   # Generate Prisma client
-   npx prisma generate
-
-   # Run migrations
-   npx prisma migrate deploy
-   ```
-
-### Important Notes
-- Never commit your `.env` file or `DB_URL.txt`
-- Always use environment variables for sensitive information
-- Make sure your database connection string is properly formatted
-- Test your database connection before deploying 
+Let me know if you'd like this formatted for GitHub Pages or want it converted into an interactive site walkthrough!
+```
